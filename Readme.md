@@ -221,4 +221,46 @@ Tujuan utama dari univariate analysis adalah untuk memahami karakteristik dasar 
 
 **Univariate Analysis - Fitur Kategori**
 
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/fd821df3fe2b84ac9516cff0f350beefb7839ec3/resources/Screenshot%202025-05-25%20at%2018.01.06.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/univariate_country.png)
+dari visualisasi tersebut, kita dapat menyimpulkan bahwa:
+- sebagian besar sampel berasal dari negara Albania dengan persentase tertinggi, yaitu sebesar 2.4%
+- sampel paling sedikit berasa dari negara Sri Lanka, Haiti, Guinea, Turkey, dan Croatia dengan masing-masingnya memiliki persentase sebesar 0.1%
+
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/univariate_status.png)
+dari visualisasi tersebut, kita dapat menyimpulkan bahwa, sebagian besar negara dari sampe yang diambil merupakan negara berkembang (developing), dan sebagian kecilnya berasal dari negara maju (developed)
+
+**Univariate Analysis - Fitur Numerik**
+
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/univariate_numerik.png)
+dari visualisasi diatas, kita akan berfokus pada fitur target dari proyek ini, yaitu life expectancy, dan kita bisa menyimpulkan beberapa hal :
+- Angka Life Expectancy meningkat seiring dengan bertambahnya jumlah sampel
+- hanya sedikit sampel yang memiliki life expectancy diatas 65 tahun
+- dapat dilihat dari sampel tersebut bahwa, rata-rata life expectancy berada di sekitar 25-55 tahun
+- Distribusi Life Expectancy cenderung miring ke kanan (left-skewed), yang menunjukkan bahwa nilai median (nilai tengah) berada di kuartil ketiga dan lebih tinggi daripada nilai rata-rata.
+
+### Exploratory Data Analysis - Multivariate Analysis
+Multivariate Analysis dilakukan untuk melakukan visualisasi data dengan tujuan memahami keterkaitan antara dua atau lebih fitur dalam suatu dataset. Metode ini berguna untuk menemukan pola, hubungan, atau interaksi antar fitur yang dapat memberikan pemahaman yang lebih mendalam terhadap struktur data secara keseluruhan.
+
+**Multivariate Analysis - Fitur Kategori**
+
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/multivariate_country-life.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/multivariate_status-life.png)
+Dari visualisasi diatas, kita mendapati bahwa :
+- Pada visualisasi Rata-rata life expectany terhadap country, terlihat bahwa life expectancy pada negara-negara yang terdapat pada dataset, cukup tinggi yaitu diatas 65 tahun
+- Pada visualisasi Rata-rata life expectany terhadap status, terlihat bahwa life expectancy pada negara-negara maju (developed) cenderung lebih tinggi ketimbang life expectancy pada negara berkembang (developing)
+
+**Multivariate Analysis - Fitur Numerik**
+
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/multivariate_numerik-life.png)
+disini kita menggunakan scatter plot dan rig plot untuk melihat hubungan antara fitur numerik terhadap fitur target, karena jika menggunakan pairplot, hasil visualisasi akan terlalu banyak sehingga menyulitkan kita dalam melihat insight dari visualisasi yang dilakukan, kemudian dari visualisasi diatas, dapat dilihat bahwa :
+- Income Composition of Resources vs Life Expectancy : Terlihat adanya korelasi positif yang cukup kuat disini, bahwa semakin tinggi distribusi pendapatan dan fasilitas, semakin tinggi juga life expectancy
+- Schooling vs Life Expectancy : Terlihat juga adanya korelasi positif yang kuat disini, bahwa semakin tinggi pendidikan yang ditempuh, semakin tinggi juga life expectancy
+
+Untuk dapat melihat lebih jelas korelasi antar fitur, kita akan menggunakan Correlation Matrix
+
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/correlation_matrix.png)
+dari correlation matrix diatas, kita dapat mengetahui bahwa :
+- Income Composition of Resources memiliki korelasi yang kuat terhadap Life Expectancy, Fitur ini juga memiliki korelas yang kuat terhadap Schooling, hal ini cukup relevan mengingat orang yang mendapatkan fasilitas yang mendukung pasti akan menempuh pendidikan setinggi mungkin.
+- Schooling terlihat memiliki korelasi yang kuat dengan Life Expectancy, fitur ini juga memiliki korelasi yang cukup kuat terhadap schooling, hal ini cukup relevan mengingat kesimpulan yang kita dapat sebelumnya, orang yang mendapatkan fasilitas yang mendukung pasti akan menempuh pendidikan setinggi mungkin.
+
+Kesimpulan diatas juga menjawab pertanyaan kita diatas mengenai "fitur apa sajakah yang memiliki korelasi paling kuat dengan life expectancy" bahwa, Fasilitas yang didapat seseorang serta tingkat pendidikan seseorang memiliki korelasi yang kuat terhadap Life Expectancy, hal ini terbilang cukup relevan mengingat, seseorang yang menempuh pendidikan tinggi cenderung memiliki life expectancy yang tinggi pula karena tingginya mimpi yang biasanya dimiliki oleh seorang pelajar, dan seseorang yang mendapatkan fasilitas yang mendukung juga memiliki life expectancy yang tinggi
