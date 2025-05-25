@@ -203,7 +203,7 @@ sedangkan pada fitur lainnya akan saya biarkan bernilai 0, karena jika saya isi 
 
 - Kita bisa mengunakan Box Plot untuk mengetahui, apakah suatu data dikatan Outlier
 - Berikut merupakan penjelasan nilai statistik pada box plot
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/ilustrasi_outlier.png?raw=true)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/a908ebec48b594de06188ef5ebd6136b5730553c/resources/ilustrasi_outlier.jpg)
 
 
 
