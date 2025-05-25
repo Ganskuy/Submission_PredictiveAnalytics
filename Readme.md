@@ -264,3 +264,202 @@ dari correlation matrix diatas, kita dapat mengetahui bahwa :
 - Schooling terlihat memiliki korelasi yang kuat dengan Life Expectancy, fitur ini juga memiliki korelasi yang cukup kuat terhadap schooling, hal ini cukup relevan mengingat kesimpulan yang kita dapat sebelumnya, orang yang mendapatkan fasilitas yang mendukung pasti akan menempuh pendidikan setinggi mungkin.
 
 Kesimpulan diatas juga menjawab pertanyaan kita diatas mengenai "fitur apa sajakah yang memiliki korelasi paling kuat dengan life expectancy" bahwa, Fasilitas yang didapat seseorang serta tingkat pendidikan seseorang memiliki korelasi yang kuat terhadap Life Expectancy, hal ini terbilang cukup relevan mengingat, seseorang yang menempuh pendidikan tinggi cenderung memiliki life expectancy yang tinggi pula karena tingginya mimpi yang biasanya dimiliki oleh seorang pelajar, dan seseorang yang mendapatkan fasilitas yang mendukung juga memiliki life expectancy yang tinggi
+
+**Drop Fitur Berkorelasi Rendah**
+Kemudian pada fitur-fitur yang memiliki korelasi rendah terhadap fitur target, yaitu Life Expectancyakan, kita drop, adapun fitur-fitur tersebut adalah :
+- Year
+- Adult Mortality
+- infant deaths
+- Measles
+- under-five deaths
+- HIV/AIDS
+- Population
+- thinness  1-19 years
+- thinness 5-9 years
+
+| Jumah Baris                           | Jumlah Kolom |
+|---------------------------------------|--------------|
+| 669                                   | 13           |
+
+terlihat bahwa dimensi tereduksi menjadi 669 baris dan 13 kolom
+
+## Data Preparation
+
+Pada bagian ini ada empat tahap yang dapat dilakukan untuk mempersiapkan data yang, yaitu:
+
+- Encoding fitur kategori.
+- Reduksi dimensi dengan Principal Component Analysis (PCA).
+- Pembagian dataset dengan fungsi train_test_split dari library sklearn.
+- Standarisasi.
+
+namun kali ini, saya hanya akan menggunakan 3 dari 4 proses diatas, karena proses reduksi dimensi disini tidak bisa saya lakukan, karena reduksi dimensi hanya bisa dilakukan jika terdapat fitur yang memiliki korelasi sangat kuat dan sama-sama menyimpan informasi yang serupa, contohnya fitur x,y, dan z yang sama-sama menyimpan informasi mengenai berat sebuah berlian, dan saya tidak mendapati adanya fitur seperti itu pada dataset yang digunakan. Sehingga, jika saya memaksakan untuk mereduksi dimensi dari dataset ini, hal tersebut akan mengacaukan informasi yang ada, dan membuat performa model menjadi buruk.
+
+**Encoding fitur kategori**
+
+pada dataset kita terdapat 2 fitur categorical yang akan diubah menjadi data numerik yaitu: 
+- Fitur Country akan kita encode menggunakan Label Encoder karenaberisi banyak nama negara, dan akan menambahkan dimensi dataset secara signifikan jika menggunakan One-Hot Encoder
+- Fitur Status akan kita encode menggunakan One-Hot Encoder karena hanya berisi 2 kemungkinan, yaitu Developing dan Developed, hal tersebut cocok dilakukan encoding menggunakan One-Hot Encoder karena data akan di-encode kedalam binary
+
+Encoding perlu dilakukan terhadap Fitur kategori, karena sebagian besar algoritma machine learning tidak dapat bekerja secara langsung dengan data non-numerik, sehingga fitur yang memiliki tipe data non-numerik harus diubah terlebih dahulu menjadi numerik sebelum diproses oleh algoritma machine learning.
+
+**Train-Test-Split**
+
+Sebelum melakukan train-test-split, langkah awalnya adalah memisahkan antara fitur dan label. Variabel x digunakan untuk menyimpan fitur yang terdiri dari:
+
+- Alcohol
+- percentage expenditure
+- Hepatitis B
+- BMI
+- Polio
+- total expenditure
+- Diphteria
+- GDP
+- Income composition of resources
+- Schooling
+- Country
+- Status
+
+Sedangkan variabel y digunakan untuk menyimpan label yaitu Life expectancy.
+
+Selanjutnya, dilakukan train-test-split dengan pembagian data sebesar 90:10 antara data latih (train) dan data uji (test). data terbagi menjadi 602 untuk data latih dan 67 untuk data uji, dari total sebanyak 669 data.
+
+**Standarisasi**
+
+Algoritma machine learning akan menghasilkan performa yang lebih baik jika data yang digunakan memiliki skala yang relatif sama atau terdistribusi normal. Standarisasi mengubah skala fitur numerik agar memiliki distribusi standar, dengan standar deviasi 1 dan mean 0
+
+Sehingga dilakukan standarisasi dengan StandardScaler pada 10 fitur yaitu:
+
+- Alcohol
+- percentage expenditure
+- Hepatitis B
+- BMI
+- Polio
+- total expenditure
+- Diphteria
+- GDP
+- Income composition of resources
+- Schooling
+
+**Data prepration perlu dilakukan karena**
+
+- Proses encoding diperlukan untuk mengubah data kategorikal menjadi format numerik karena sebagian besar algoritma machine learning tidak dapat memproses data non-angka secara langsung.
+- Reduksi dimensi berguna untuk menyederhanakan kompleksitas data, mempercepat proses pelatihan model, serta membantu mengurangi kemungkinan terjadinya overfitting dan multikolinearitas.
+- Pemisahan data ke dalam data latih dan data uji bertujuan untuk menilai performa model terhadap data yang belum pernah dilihat sebelumnya, sehingga dapat memberikan gambaran akurat mengenai kemampuan model dalam menggeneralisasi ke data baru.
+- Standarisasi dilakukan agar fitur-fitur dalam dataset berada dalam skala yang seragam, karena banyak algoritma machine learning bekerja lebih optimal dan konvergen lebih cepat jika data berada dalam skala serupa atau mengikuti distribusi normal.
+
+## Model Development
+
+Pada kasus ini, kita menggunakan 4 model yaitu :
+
+1. K-Nearest Neighbor
+- **Proses Pembangunan Model**:
+
+  1.   ```from sklearn.neighbors import KNeighborsRegressor```
+
+       - Mengimpor class `KNeighborsRegressor` dari pustaka scikit-learn.
+
+  2.   ```from sklearn.metrics import mean_squared_error```
+
+       - Mengimpor class `mean_squared_error` dari pustaka scikit-learn, mean squared error (MSE) merupakan metrik evaluasi yang kita gunakan pada proyek ini
+
+  3.   ```knn = KNeighborsRegressor(n_neighbors=10)```
+
+       - Membuat objek dari class `KNeighborsRegressor` dengan parameter yang ditentukan.
+
+          - **Penjelasan Parameter**:
+
+            - `n_neighbors=10`: model akan mencari 10 tetangga terdekat dari titik data baru dan mengambil rata-rata dari target mereka untuk menghasilkan prediksi.
+
+  4.   ```knn.fit(X_train, y_train)```
+
+       - Memanggil metode fit untuk melatih model `KNeighborsRegressor` menggunakan data pelatihan `X_train` dan `y_train`.
+
+       - `X_train`: Matriks fitur untuk melatih model.
+
+       - `y_train`: Nilai target yang sesuai dengan data fitur dalam `X_train`.
+         
+- **Cara Kerja Model**:
+  - K-Nearest Neighbors bekerja dengan mencari sejumlah tetangga terdekat dalam ruang fitur yang memiliki nilai target serupa. Setelah tetangga ditemukan, model akan menggunakan nilai rata-rata dari tetangga tersebut untuk membuat prediksi nilai target untuk data baru.
+
+---
+
+2. Random Forest
+- **Proses Pembangunan Model**:
+
+  1.   ```from sklearn.ensemble import RandomForestRegressor```
+
+       - Mengimpor class `RandomForestRegressor` dari pustaka scikit-learn.
+
+  2.   ```RF = RandomForestRegressor(n_estimators=50, max_depth=16, random_state=55, n_jobs=-1)```
+
+       - Membuat objek dari class `RandomForestRegressor` dengan parameter yang ditentukan.
+
+          - **Penjelasan Parameter**:
+
+            - `n_estimators=50`: jumlah pohon yang dibangun sebanyak 50
+            - `max_depth=16`: batas kedalam maksimum tiap pohon adalah 16 level, hal ini dilakukan untuk mencegah overfitting
+            - `n_jobs=-1`: Menggunakan seluruh core CPU yang tersedia untuk mempercepat training
+
+  3.   ```RF.fit(X_train, y_train)```
+
+       - Memanggil metode fit untuk melatih model `RandomForestRegressor` menggunakan data pelatihan `X_train` dan `y_train`.
+
+       - `X_train`: Matriks fitur untuk melatih model.
+
+       - `y_train`: Nilai target yang sesuai dengan data fitur dalam `X_train`.
+         
+- **Cara Kerja Model**:
+  - Random Forest bekerja dengan membuat banyak decision tree dari data yang diacak. Hasil prediksi dari semua pohon tersebut kemudian digabungkan — dengan cara voting (untuk klasifikasi) atau rata-rata (untuk regresi).
+
+---
+
+3. Ada Boost
+- **Proses Pembangunan Model**:
+
+  1.   ```from sklearn.ensemble import AdaBoostRegressor```
+
+       - Mengimpor class `AdaBoostRegressor` dari pustaka scikit-learn.
+
+  2.   ```boosting = AdaBoostRegressor(learning_rate=0.05, random_state=55)```
+
+       - Membuat objek dari class `AdaBoostRegressor` dengan parameter yang ditentukan.
+
+          - **Penjelasan Parameter**:
+
+            - `learning_rate=0.05`: learning_rate=0.05 berarti, Mengontrol kontribusi masing-masing model lemah. Nilai yang kecil berarti model belajar lebih lambat tapi lebih stabil.
+            - `random_state=55`: 55 “seed” digunakan untuk mengatur generator angka acak.
+
+  3.   ```boosting.fit(X_train, y_train)```
+
+       - Memanggil metode fit untuk melatih model `AdaBoostRegressor` menggunakan data pelatihan `X_train` dan `y_train`.
+
+       - `X_train`: Matriks fitur untuk melatih model.
+
+       - `y_train`: Nilai target yang sesuai dengan data fitur dalam `X_train`.
+         
+- **Cara Kerja Model**:
+  - AdaBoost (Adaptive Boosting) bekerja dengan menggabungkan beberapa model lemah secara berurutan. Setiap model fokus pada kesalahan dari model sebelumnya dengan memberi bobot lebih besar pada data yang salah diprediksi. Model akhir adalah gabungan dari semua model lemah dengan bobot sesuai akurasinya.
+
+---
+
+**Kelebihan dan Kekurangan Dari Setiap Model**
+| **Model**             | **Kelebihan**                                                                                                                                     | **Kekurangan**                                                                                                                              |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| **K-Nearest Neighbor**| - Mudah diimplementasikan  <br> - Cocok untuk data kecil dan non-linear                                                                           | - Lambat saat prediksi pada data besar  <br> - Sensitif terhadap data noisy & skala fitur  <br> - Tidak efektif pada data berdimensi tinggi |
+| **Random Forest**     | - Akurasi tinggi & tahan overfitting  <br> - Bisa handle data numerik & kategorikal  <br> - Memberikan informasi feature importance               | - Kompleks & sulit diinterpretasikan  <br> - Butuh memori & waktu lebih banyak  <br> - Kurang cocok untuk prediksi real-time                |
+| **Adaptive Boosting** | - Tingkatkan akurasi model sederhana  <br> - Fokus pada data yang sulit diklasifikasi  <br> - Risiko overfitting rendah jika dituning dengan baik | - Sensitif terhadap outlier  <br> - Performa buruk jika base model terlalu kompleks  <br> - Membutuhkan tuning parameter yang tepat         |
+
+**Ketiga Model tersebut Cocok Karena**.
+
+- K-Nearest Neighbor (KNN) model non-parametrik yang sederhana dan efektif. Ia mengklasifikasikan atau melakukan regresi berdasarkan kedekatan ke tetangga terdekat, sehingga sangat intuitif. KNN juga cocok digunakan karena dataset yang kita gunakan ini terbilang memiliki dimensi yang cukup kecil, sehingga cocok dengan algoritma KNN yang sederhana
+
+- Random Forest Regressor menggabungkan hasil dari banyak pohon keputusan untuk menghasilkan prediksi yang lebih akurat dan robust. Ia juga memiliki mekanisme built-in untuk menangani overfitting dan dapat menangani data yang hilang dengan baik.
+
+- AdaBoostRegressor Cocok digunakan karena dataset ini bersih, dan boosting bisa memperbaiki kesalahan iteratif, meningkatkan akurasi secara progresif.
+
+## Evaluation
+
+Dalam analisis ini digunakan metrik Mean Squared Error (MSE) untuk mengevaluasi kinerja model. MSE mengukur seberapa jauh prediksi model menyimpang dari nilai sebenarnya, dengan cara menghitung selisih antara nilai prediksi dan nilai aktual, mengkuadratkannya, lalu mengambil rata-rata dari seluruh selisih kuadrat tersebut. Nilai MSE yang lebih kecil menunjukkan bahwa prediksi model lebih mendekati nilai sebenarnya.
+
+**Formula Mean Squared Error :**
+
