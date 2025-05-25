@@ -214,4 +214,11 @@ dari ilustrasi diatas dapat disimpulkan bahwa, data yang melebihi nilai minimum 
 - Q1 adalah Nilai dibawah 25% data
 - Q3 adalah nilai diatas 75% data
 - Pada metode IQR, data akan dikatakan sebagai Outlier jika:
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/5bf98dcd691f49a1425776db0e7306bfc725409b/resources/Screenshot%202025-05-25%20at%2017.55.42.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/fd821df3fe2b84ac9516cff0f350beefb7839ec3/resources/Screenshot%202025-05-25%20at%2018.01.06.png)
+
+### Exploratory Data Analysis - Univariate Analysis
+Tujuan utama dari univariate analysis adalah untuk memahami karakteristik dasar dari satu variabel secara individual.
+
+**Univariate Analysis - Fitur Kategori**
+
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/fd821df3fe2b84ac9516cff0f350beefb7839ec3/resources/Screenshot%202025-05-25%20at%2018.01.06.png)
