@@ -210,7 +210,8 @@ dari ilustrasi diatas dapat disimpulkan bahwa, data yang melebihi nilai minimum 
 ![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/a1f6569fcc7dd83ab646ba11bf93757471c8f31d/resources/boxplot.png)
 - Kita dapat melihat bahwa semua fitur numerik kecuali BMI, Income composition of resources, dan Year, memiliki outlier, kemudian kita akan menghilangkan outlier tersebut menggunakan IQR Method
 - IQR (Interquartile) Methods merupakan salah satu metode yang umum digunakan dalam menangani outlier, metode ini menggunakan jarak antar kuartil sebagai nilai tengah, dan data yang berada diluar itu akan dianggap sebagai outlier
-
-
-
-
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/5bf98dcd691f49a1425776db0e7306bfc725409b/resources/Screenshot%202025-05-25%20at%2017.55.42.png)
+- Q1 adalah Nilai dibawah 25% data
+- Q3 adalah nilai diatas 75% data
+- Pada metode IQR, data akan dikatakan sebagai Outlier jika:
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/5bf98dcd691f49a1425776db0e7306bfc725409b/resources/Screenshot%202025-05-25%20at%2017.55.42.png)
