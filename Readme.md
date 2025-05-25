@@ -204,6 +204,10 @@ sedangkan pada fitur lainnya akan saya biarkan bernilai 0, karena jika saya isi 
 - Kita bisa mengunakan Box Plot untuk mengetahui, apakah suatu data dikatan Outlier
 - Berikut merupakan penjelasan nilai statistik pada box plot
 ![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/a908ebec48b594de06188ef5ebd6136b5730553c/resources/ilustrasi_outlier.jpg)
+dari ilustrasi diatas dapat disimpulkan bahwa, data yang melebihi nilai minimum atau maksimum dikatakan sebagai outlier
+- Outlier merupakan sesuatu yang harus kita tangani dalam membangun model machine learning, karena outlier ini bisa dianggap sebagai noise oleh model dan akan mengurangi performa model.
+- Kemudian, dibawah ini adalah box plot dari dataset yang saya gunakan :
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/a908ebec48b594de06188ef5ebd6136b5730553c/resources/ilustrasi_outlier.jpg)
 
 
 
