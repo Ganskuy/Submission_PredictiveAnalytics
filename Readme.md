@@ -463,3 +463,52 @@ Dalam analisis ini digunakan metrik Mean Squared Error (MSE) untuk mengevaluasi 
 
 **Formula Mean Squared Error :**
 
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/d0024cc99a92ec93a55c9d711b48c81b2790df1b/resources/mse.jpg)
+
+---
+
+**Cara Kerja MSE**
+
+1. **Hitung Error**
+   - Untuk setiap data, hitung selisih antara nilai aktual dan nilai prediksi:
+     \[
+     \text{Error}_i = Y_i - \hat{Y}_i
+     \]
+
+2. **Kuadratkan Error**
+   - Agar semua error bernilai positif dan memberi penalti lebih besar pada error besar:
+     \[
+     (\text{Error}_i)^2
+     \]
+
+3. **Hitung Rata-rata**
+   - Jumlahkan semua nilai error yang telah dikuadratkan dan bagi dengan jumlah data:
+     \[
+     \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\text{Error}_i)^2
+     \]
+
+---
+
+**Evaluasi Model Machine Learning**
+
+| Model     | Train MSE | Test MSE |
+|-----------|-----------|----------|
+| KNN       | 0.008466  | 0.011335 |
+| RF        | 0.000731  | 0.004887 |
+| Boosting  | 0.007777  | 0.009028 |
+
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/train-test.png)
+
+| Index | y_true | prediksi_KNN  | prediksi_RF | prediksi_Boosting  |
+|-------|--------|---------------|-------------|--------------------|
+| 720   | 78.9   | 79.7          | 81.3        | 80.7               |
+
+Dari tabel di atas, dapat dilihat bahwa setiap model menghasilkan prediksi yang bervariasi untuk setiap nilai aktual (y_true). Model K-Nearest Neighbor (KNN) menunjukan hasil yang paling mendekati nilai aktual, sementara Random Forest dan Ada Boost menunjukkan hasil yang kompetitif. Secara keseluruhan, performa model dapat bervariasi tergantung pada karakteristik data dan hubungan yang ada antara fitur dan target.
+
+## Kesimpulan
+
+Dari hasil analisis dan evaluasi yang dilakukan, dapat disimpulkan bahwa model yang dibangun berhasil menjawab dua rumusan masalah utama yang diajukan. Pertama, melalui analisis multivariat dan proses pelatihan model, dapat diidentifikasi bahwa sejumlah fitur seperti GDP, Schooling, BMI, dan Health Expenditure merupakan faktor yang paling signifikan memengaruhi angka harapan hidup (Life Expectancy). Fitur-fitur ini menunjukkan korelasi yang kuat dan relevan dalam menentukan seberapa tinggi tingkat kesehatan dan kesejahteraan populasi di suatu negara. Kedua, model regresi yang dikembangkan juga terbukti mampu memprediksi angka harapan hidup secara akurat berdasarkan fitur-fitur input. Dari evaluasi menggunakan metrik Mean Squared Error (MSE), diketahui bahwa Model Random Forest dan Boosting (AdaBoost) menunjukkan performa terbaik, dengan nilai MSE yang paling rendah baik pada data pelatihan maupun pengujian. Hal ini menandakan bahwa kedua model tersebut sangat efektif dalam menangkap hubungan kompleks antar variabel untuk memprediksi nilai target. Secara khusus, Random Forest unggul dalam menjaga keseimbangan antara akurasi dan generalisasi. prediksi pada indeks 720 menunjukkan bahwa seluruh model memberikan hasil yang cukup mendekati nilai aktual. Hal ini menunjukkan tingkat keandalan prediksi yang baik, terutama oleh KNN dan Boosting, meskipun RF menghasilkan nilai prediksi tertinggi.
+
+## Referensi
+
+Life Expectancy, Healthy Life Expectancy, and Burden of Disease in Older People in The Americas, 1990–2019: a Population-based Study [_( Link Jurnal )_](https://pmc.ncbi.nlm.nih.gov/articles/PMC8489742/)
