@@ -465,26 +465,23 @@ Dalam analisis ini digunakan metrik Mean Squared Error (MSE) untuk mengevaluasi 
 
 ![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/d0024cc99a92ec93a55c9d711b48c81b2790df1b/resources/mse.jpg)
 
----
-
 **Cara Kerja MSE**
+---
 
 1. **Hitung Error**
    - Untuk setiap data, hitung selisih antara nilai aktual dan nilai prediksi:
-     \[
-     \text{Error}_i = Y_i - \hat{Y}_i
-     \]
+     
+     Errorᵢ = Yᵢ -  Ŷᵢ
 
 2. **Kuadratkan Error**
-   - Agar semua error bernilai positif dan memberi penalti lebih besar pada error besar:
-     \[
-     (\text{Error}_i)^2
-     \]
+   - Agar semua error bernilai positif dan memberi penalti lebih besar pada error yang besar:
+     
+     (Errorᵢ)²
 
 3. **Hitung Rata-rata**
-   - Jumlahkan semua nilai error yang telah dikuadratkan dan bagi dengan jumlah data:
-     \[
-     \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\text{Error}_i)^2
+   - Jumlahkan semua error yang telah dikuadratkan dan bagi dengan jumlah data:
+     
+     MSE = (1/n) × ∑(i=1 to n) (Errorᵢ)²
      \]
 
 ---
