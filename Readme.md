@@ -482,7 +482,6 @@ Dalam analisis ini digunakan metrik Mean Squared Error (MSE) untuk mengevaluasi 
    - Jumlahkan semua error yang telah dikuadratkan dan bagi dengan jumlah data:
      
      MSE = (1/n) × ∑(i=1 to n) (Errorᵢ)²
-     \]
 
 ---
 
