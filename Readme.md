@@ -207,7 +207,9 @@ sedangkan pada fitur lainnya akan saya biarkan bernilai 0, karena jika saya isi 
 dari ilustrasi diatas dapat disimpulkan bahwa, data yang melebihi nilai minimum atau maksimum dikatakan sebagai outlier
 - Outlier merupakan sesuatu yang harus kita tangani dalam membangun model machine learning, karena outlier ini bisa dianggap sebagai noise oleh model dan akan mengurangi performa model.
 - Kemudian, dibawah ini adalah box plot dari dataset yang saya gunakan :
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/a908ebec48b594de06188ef5ebd6136b5730553c/resources/ilustrasi_outlier.jpg)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/a1f6569fcc7dd83ab646ba11bf93757471c8f31d/resources/boxplot.png)
+- Kita dapat melihat bahwa semua fitur numerik kecuali BMI, Income composition of resources, dan Year, memiliki outlier, kemudian kita akan menghilangkan outlier tersebut menggunakan IQR Method
+- IQR (Interquartile) Methods merupakan salah satu metode yang umum digunakan dalam menangani outlier, metode ini menggunakan jarak antar kuartil sebagai nilai tengah, dan data yang berada diluar itu akan dianggap sebagai outlier
 
 
 
