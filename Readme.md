@@ -203,35 +203,35 @@ sedangkan pada fitur lainnya akan saya biarkan bernilai 0, karena jika saya isi 
 
 - Kita bisa mengunakan Box Plot untuk mengetahui, apakah suatu data dikatan Outlier
 - Berikut merupakan penjelasan nilai statistik pada box plot
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/a908ebec48b594de06188ef5ebd6136b5730553c/resources/ilustrasi_outlier.jpg)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/ilustrasi_outlier.jpg?raw=true)
 dari ilustrasi diatas dapat disimpulkan bahwa, data yang melebihi nilai minimum atau maksimum dikatakan sebagai outlier
 - Outlier merupakan sesuatu yang harus kita tangani dalam membangun model machine learning, karena outlier ini bisa dianggap sebagai noise oleh model dan akan mengurangi performa model.
 - Kemudian, dibawah ini adalah box plot dari dataset yang saya gunakan :
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/a1f6569fcc7dd83ab646ba11bf93757471c8f31d/resources/boxplot.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/boxplot.png?raw=true)
 - Kita dapat melihat bahwa semua fitur numerik kecuali BMI, Income composition of resources, dan Year, memiliki outlier, kemudian kita akan menghilangkan outlier tersebut menggunakan IQR Method
 - IQR (Interquartile) Methods merupakan salah satu metode yang umum digunakan dalam menangani outlier, metode ini menggunakan jarak antar kuartil sebagai nilai tengah, dan data yang berada diluar itu akan dianggap sebagai outlier
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/5bf98dcd691f49a1425776db0e7306bfc725409b/resources/Screenshot%202025-05-25%20at%2017.55.42.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/Screenshot%202025-05-25%20at%2017.55.42.png?raw=true)
 - Q1 adalah Nilai dibawah 25% data
 - Q3 adalah nilai diatas 75% data
 - Pada metode IQR, data akan dikatakan sebagai Outlier jika:
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/fd821df3fe2b84ac9516cff0f350beefb7839ec3/resources/Screenshot%202025-05-25%20at%2018.01.06.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/Screenshot%202025-05-25%20at%2018.01.06.png?raw=true)
 
 ### Exploratory Data Analysis - Univariate Analysis
 Tujuan utama dari univariate analysis adalah untuk memahami karakteristik dasar dari satu variabel secara individual.
 
 **Univariate Analysis - Fitur Kategori**
 
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/univariate_country.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/univariate_country.png?raw=true)
 dari visualisasi tersebut, kita dapat menyimpulkan bahwa:
 - sebagian besar sampel berasal dari negara Albania dengan persentase tertinggi, yaitu sebesar 2.4%
 - sampel paling sedikit berasa dari negara Sri Lanka, Haiti, Guinea, Turkey, dan Croatia dengan masing-masingnya memiliki persentase sebesar 0.1%
 
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/univariate_status.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/univariate_status.png?raw=true)
 dari visualisasi tersebut, kita dapat menyimpulkan bahwa, sebagian besar negara dari sampe yang diambil merupakan negara berkembang (developing), dan sebagian kecilnya berasal dari negara maju (developed)
 
 **Univariate Analysis - Fitur Numerik**
 
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/univariate_numerik.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/univariate_numerik.png?raw=true)
 dari visualisasi diatas, kita akan berfokus pada fitur target dari proyek ini, yaitu life expectancy, dan kita bisa menyimpulkan beberapa hal :
 - Angka Life Expectancy meningkat seiring dengan bertambahnya jumlah sampel
 - hanya sedikit sampel yang memiliki life expectancy diatas 65 tahun
@@ -243,22 +243,22 @@ Multivariate Analysis dilakukan untuk melakukan visualisasi data dengan tujuan m
 
 **Multivariate Analysis - Fitur Kategori**
 
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/multivariate_country-life.png)
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/multivariate_status-life.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/multivariate_country-life.png?raw=true)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/multivariate_status-life.png?raw=true)
 Dari visualisasi diatas, kita mendapati bahwa :
 - Pada visualisasi Rata-rata life expectany terhadap country, terlihat bahwa life expectancy pada negara-negara yang terdapat pada dataset, cukup tinggi yaitu diatas 65 tahun
 - Pada visualisasi Rata-rata life expectany terhadap status, terlihat bahwa life expectancy pada negara-negara maju (developed) cenderung lebih tinggi ketimbang life expectancy pada negara berkembang (developing)
 
 **Multivariate Analysis - Fitur Numerik**
 
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/multivariate_numerik-life.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/multivariate_numerik-life.png?raw=true)
 disini kita menggunakan scatter plot dan rig plot untuk melihat hubungan antara fitur numerik terhadap fitur target, karena jika menggunakan pairplot, hasil visualisasi akan terlalu banyak sehingga menyulitkan kita dalam melihat insight dari visualisasi yang dilakukan, kemudian dari visualisasi diatas, dapat dilihat bahwa :
 - Income Composition of Resources vs Life Expectancy : Terlihat adanya korelasi positif yang cukup kuat disini, bahwa semakin tinggi distribusi pendapatan dan fasilitas, semakin tinggi juga life expectancy
 - Schooling vs Life Expectancy : Terlihat juga adanya korelasi positif yang kuat disini, bahwa semakin tinggi pendidikan yang ditempuh, semakin tinggi juga life expectancy
 
 Untuk dapat melihat lebih jelas korelasi antar fitur, kita akan menggunakan Correlation Matrix
 
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/correlation_matrix.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/correlation_matrix.png?raw=true)
 dari correlation matrix diatas, kita dapat mengetahui bahwa :
 - Income Composition of Resources memiliki korelasi yang kuat terhadap Life Expectancy, Fitur ini juga memiliki korelas yang kuat terhadap Schooling, hal ini cukup relevan mengingat orang yang mendapatkan fasilitas yang mendukung pasti akan menempuh pendidikan setinggi mungkin.
 - Schooling terlihat memiliki korelasi yang kuat dengan Life Expectancy, fitur ini juga memiliki korelasi yang cukup kuat terhadap schooling, hal ini cukup relevan mengingat kesimpulan yang kita dapat sebelumnya, orang yang mendapatkan fasilitas yang mendukung pasti akan menempuh pendidikan setinggi mungkin.
@@ -463,7 +463,7 @@ Dalam analisis ini digunakan metrik Mean Squared Error (MSE) untuk mengevaluasi 
 
 **Formula Mean Squared Error :**
 
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/d0024cc99a92ec93a55c9d711b48c81b2790df1b/resources/mse.jpg)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/mse.jpg?raw=true)
 
 **Cara Kerja MSE**
 ---
@@ -493,7 +493,7 @@ Dalam analisis ini digunakan metrik Mean Squared Error (MSE) untuk mengevaluasi 
 | RF        | 0.000731  | 0.004887 |
 | Boosting  | 0.007777  | 0.009028 |
 
-![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/ce66893e8ce796a5047f9c512906c9c36ce2b903/resources/train-test.png)
+![Box Plot Illustration](https://github.com/Ganskuy/Submission_PredictiveAnalytics/blob/main/resources/train-test.png?raw=true)
 
 | Index | y_true | prediksi_KNN  | prediksi_RF | prediksi_Boosting  |
 |-------|--------|---------------|-------------|--------------------|
